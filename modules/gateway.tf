@@ -12,3 +12,98 @@ resource "oci_apigateway_gateway" "gateway" {
    
   }
 }
+data "local_file" "api_description_file" {
+    filename = "./data/openapi.yaml"
+    #filename =  "../../data/openapi.yaml"
+}
+
+locals {
+    api_description = yamldecode(data.local_file.api_description_file.content)
+}
+
+
+resource "oci_apigateway_api" "this" {
+   # for_each = fileset("${path.module},../../data/openapi.yaml", "*.yaml")
+    #compartment_id = var.compartment_ids[each.value.compartment_name]
+    #content = file("${path.module}/openapi/${each.value}")
+    #display_name = yamldecode(file("${path.module}/openapi/${each.value}")).info.title  
+    compartment_id = "${var.compartment_id}"
+    content = data.local_file.api_description_file.content
+    display_name = local.api_description.info.title
+  
+}
+  locals {
+  backend_types = {
+    function       = "ORACLE_FUNCTIONS_BACKEND"
+    http           = "HTTP_BACKEND"
+    stock_response = "STOCK_RESPONSE_BACKEND"
+  }
+}
+
+resource "oci_apigateway_deployment" "fieldservice_deployment" {
+    #Required
+    compartment_id = var.compartment_id
+    gateway_id = module.gateway.gateway_id
+    path_prefix = local.api_description.basePath
+    specification {
+
+        #Optional
+        logging_policies {
+
+            #Optional
+            access_log {
+
+                #Optional
+                is_enabled = true
+            }
+            execution_log {
+
+                #Optional
+                is_enabled = true
+                log_level = var.logging_level
+            }
+        }
+        request_policies {
+
+#         rate_limiting {
+#            # Required
+#            rate_in_requests_per_second = "${var.deployment_specification_request_policies_rate_limiting_rate_in_requests_per_second}"
+#            rate_key = "${var.deployment_specification_request_policies_rate_limiting_rate_key}"
+#            }
+        }
+        routes {
+            #Required
+            backend {
+                #Required
+                type = "ORACLE_FUNCTIONS_BACKEND"
+
+                #Optional
+                function_id = var.function_id
+                connect_timeout_in_seconds = "5"
+                read_timeout_in_seconds = "5"
+                send_timeout_in_seconds = "5"
+            }
+            path = "/pet"
+
+            #Optional
+            logging_policies {
+
+                #Optional
+                access_log {
+
+                    #Optional
+                    is_enabled = true
+                }
+                execution_log {
+
+                    #Optional
+                    is_enabled = true
+                    log_level = var.logging_level
+                }
+            }
+            methods = ["GET"]
+        }
+    }
+    display_name = local.api_description.info.title
+  }
+
