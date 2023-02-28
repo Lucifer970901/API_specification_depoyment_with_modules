@@ -1,0 +1,144 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: "fieldService"
+  description: fieldService is an API that supports the Field Service ticketing application which is used by customer service engineers to manage service tickets.  This is a sample project.
+  license:
+    name: MIT
+    url: https://github.com/apiaryio/polls-api/blob/master/LICENSE
+host: ezaug3yqushh3mtxj5evrnadxe.apigateway.us-ashburn-1.oci.customer-oci.com
+basePath: /fieldservice/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /tickets:
+    x-summary: Tickets Collection
+    get:
+      summary: List All Tickets (complete list)
+      parameters:
+        - in: header
+          name: x-api-key 
+          required: true
+          type: string
+          description: API Key required for the API.
+        
+      responses:
+        200:
+          description: Successful Response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Ticket'
+
+          examples:
+            application/json:
+              - customer: Tech Experts
+                status: Unresolved
+                product: Terrabook Laptop Computer
+                tracking: "1234"
+                summary: Customer reports that keys are sticking
+                partnerID: "7309"
+                partner: ACME tech corp
+                customerID: "45434"
+                subject: Keys are sticking
+
+    post:
+      description: >-
+        You can create a new ticket using this method
+      summary: Create a New Ticket
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/TicketRequest'
+      responses:
+        201:
+          description: ''
+          schema:
+            $ref: '#/definitions/Ticket'
+          examples:
+            application/json:
+                status: OK
+                
+definitions:
+  Ticket:
+    title: Ticket
+    type: object
+    properties:
+      ticketID:
+        type: string
+      subject:
+        type: string
+      summary:
+        type: string
+      customer:
+        type: string
+      customerID:
+        type: string
+      partner:
+        type: string
+      partnerID:
+        type: string
+      product:
+        type: string
+      status:
+        type: string
+      tracking:
+        type: string
+      comments:
+        type: string
+
+  TicketRequest:
+    title: Ticket Request
+    type: object
+    properties:
+      ticketID:
+        type: string
+      subject:
+        type: string
+      summary:
+        type: string
+      customer:
+        type: string
+      customerID:
+        type: string
+      partner:
+        type: string
+      partnerID:
+        type: string
+      product:
+        type: string
+      status:
+        type: string
+      tracking:
+        type: string
+      comments:
+        type: string
+    required:
+      - ticketID
+      - subject
+      - summary
+      - customer
+      - customerID
+      - partner
+      - partnerID
+      - product
+      - status
+      - tracking
+      - comments
+    example:
+        ticketID: 45434
+        subject: Keys are sticking
+        summary: Customer reports that keys are sticking after spilling a sugar-laden soft-drink on it
+        customer: Tech Experts
+        customerID: 46995
+        partner: We-fix-em Computer Services
+        partnerID: 7309
+        product: Terrabook Laptop Computer
+        status: Unresolved
+        tracking: 1234
