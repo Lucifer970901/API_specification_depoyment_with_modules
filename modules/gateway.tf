@@ -97,7 +97,7 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
 
                     #Optional
                     is_enabled = true 
-                   #log_level = var.logging_level
+                   log_level = var.logging_level
                 }
             }
             methods = ["GET"]
