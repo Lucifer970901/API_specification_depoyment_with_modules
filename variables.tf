@@ -42,7 +42,7 @@ variable "gateway_endpoint_type" {
 }
 
 variable "function_id" {
-    type = string
+    type = fnfunc
 }
 
 variable "agile_lifecycle_iteration_flow" {
