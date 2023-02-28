@@ -1,6 +1,6 @@
 
 data "local_file" "api_description_file" {
-    filename = "./data/openapi.yaml"
+    filename = "./data/swagger.yaml"
     #filename =  "../../data/openapi.yaml"
 }
 
@@ -82,7 +82,7 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
                 read_timeout_in_seconds = "5"
                 send_timeout_in_seconds = "5"
             }
-            path = "/pet"
+            path = "/tickets"
 
             #Optional
             logging_policies {
