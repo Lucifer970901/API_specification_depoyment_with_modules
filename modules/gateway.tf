@@ -106,5 +106,5 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
         }
     }
     display_name = local.api_description.info.title
-  }
+  }}
 
