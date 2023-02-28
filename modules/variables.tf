@@ -4,5 +4,5 @@ variable   "subnet_id" {}
 variable "function_id" {}
 
 variable "logging_level" {
-  default = "Error"
+  default = "ERROR"
 }
