@@ -58,7 +58,7 @@ specification {
 
                 #Optional
                 is_enabled = true
-                log_level = var.logging_level
+               # log_level = var.logging_level
             }
         }
         request_policies {
@@ -95,8 +95,8 @@ specification {
                 execution_log {
 
                     #Optional
-                    is_enabled = true
-                    log_level = var.logging_level
+                    is_enabled = true 
+                   #log_level = var.logging_level
                 }
             }
             methods = ["GET"]
