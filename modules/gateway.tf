@@ -42,7 +42,7 @@ resource "oci_apigateway_api" "this" {
 
 resource "oci_apigateway_deployment" "fieldservice_deployment" {
     #Required
-    compartment_id = var.compartment_id
+    compartment_id = "${var.compartment_id}"
     gateway_id = module.gateway.gateway_id
     path_prefix = local.api_description.basePath
     specification {
@@ -78,7 +78,7 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
                 type = "ORACLE_FUNCTIONS_BACKEND"
 
                 #Optional
-                function_id = var.function_id
+                function_id = "${var.function_id}"
                 connect_timeout_in_seconds = "5"
                 read_timeout_in_seconds = "5"
                 send_timeout_in_seconds = "5"
