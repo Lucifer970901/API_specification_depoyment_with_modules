@@ -42,7 +42,7 @@ variable "gateway_endpoint_type" {
 }
 
 variable "function_id" {
-    type = map(string)
+    type = string
 }
 
 variable "agile_lifecycle_iteration_flow" {
