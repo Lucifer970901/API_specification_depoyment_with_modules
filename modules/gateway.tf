@@ -40,7 +40,7 @@ resource "oci_apigateway_api" "this" {
   }
 }
 
-resource "oci_apigateway_deployment" "fieldservice_deployment" {
+resource "oci_apigateway_deployment" "service_deployment" {
     #Required
     compartment_id = "${var.compartment_id}"
     #gateway_id = module.gateway.gateway_id
@@ -106,5 +106,5 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
         }
     }
     display_name = local.api_description.info.title
-  }}
+  }
 
