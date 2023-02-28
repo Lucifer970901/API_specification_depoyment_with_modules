@@ -43,8 +43,8 @@ resource "oci_apigateway_api" "this" {
 resource "oci_apigateway_deployment" "service_deployment" {
     #Required
     compartment_id = "${var.compartment_id}"
-    gateway_id = "${var.gateway_id}"
-    #gateway_id    oci_apigateway_gateway.gateway.id
+    #gateway_id = "${var.gateway_id}"
+    gateway_id    oci_apigateway_gateway.gateway.id
     path_prefix = local.api_description.basePath
     specification {
 
