@@ -41,7 +41,7 @@ variable "gateway_endpoint_type" {
     default = "PUBLIC"
 }
 
-variable "function_id" {
+variable "function_ids" {
     type = map(string)
 }
 
