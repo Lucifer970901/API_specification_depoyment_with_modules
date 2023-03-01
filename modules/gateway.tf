@@ -77,7 +77,8 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
             #Required
             backend {
                 #Required
-                type = "ORACLE_FUNCTIONS_BACKEND"
+                type = "function"
+                #type = "ORACLE_FUNCTIONS_BACKEND"
 
                 #Optional
                 #function_id = "${var.function_ids[routes.value.function_name]}"
