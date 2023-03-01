@@ -74,8 +74,8 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
                  iterator = routes  
                  for_each = (lookup(each.value, "function_routes", null) != null) ? each.value.function_routes : []
                     content {
-                  methods = routes.value.methods
-                  path    = routes.value.path
+                  #methods = routes.value.methods
+                  #path    = routes.value.path
             #Required
             backend {
                 #Required
@@ -86,7 +86,7 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
                 connect_timeout_in_seconds = "5"
                 read_timeout_in_seconds = "5"
                 send_timeout_in_seconds = "5"
-            }
+            }}
          
             path = "/tickets"
 
