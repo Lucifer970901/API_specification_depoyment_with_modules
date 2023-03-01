@@ -73,6 +73,9 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
                 routes {
                  iterator = routes  
                  for_each = (lookup(each.value, "function_routes", null) != null) ? each.value.function_routes : []
+                    content {
+                  methods = routes.value.methods
+                  path    = routes.value.path
             #Required
             backend {
                 #Required
