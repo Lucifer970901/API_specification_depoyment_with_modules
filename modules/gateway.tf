@@ -71,8 +71,8 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
 #            }
         }
                 routes {
-                 iterator = routes  
-                 for_each = (lookup(each.value, "function_routes", null) != null) ? each.value.function_routes : []
+                 #iterator = routes  
+                 #for_each = (lookup(each.value, "function_routes", null) != null) ? each.value.function_routes : []
                     
             #Required
             backend {
