@@ -10,12 +10,12 @@ function_ids  = {
 gwdeploy_params = {
    api_deploy1 = {
   function_routes = [
-      {
+      /*{
         type          = "function"
         path          = "/tickets"
         methods       = ["GET", ]
         function_name = "helloworld-func"
-      }
+      }*/
     ]
 }
 }
