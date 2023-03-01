@@ -69,3 +69,15 @@ variable "git_revision" {
     type = string
     default = null
 }
+
+variable "gwdeploy_params" {
+  description = "API Gateway Deployment Params"
+  type = map(object({
+      function_routes = list(object({
+      type          = string
+      path          = string
+      methods       = list(string)
+      function_name = string
+    }))
+      }))
+  }
