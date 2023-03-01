@@ -40,10 +40,12 @@ variable "gateway_endpoint_type" {
     type = string
     default = "PUBLIC"
 }
-
-variable "function_ids" {
-    type = map(string)
+variable "function_id" {
+    type = string
 }
+#variable "function_ids" {
+ #   type = map(string)
+#}
 
 variable "agile_lifecycle_iteration_flow" {
     type = string
@@ -70,14 +72,14 @@ variable "git_revision" {
     default = null
 }
 
-variable "gwdeploy_params" {
-  description = "API Gateway Deployment Params"
-  type = map(object({
-      function_routes = list(object({
-      type          = string
-      path          = string
-      methods       = list(string)
-      function_name = string
-    }))
-      }))
-  }
+#variable "gwdeploy_params" {
+ # description = "API Gateway Deployment Params"
+  #type = map(object({
+   #   function_routes = list(object({
+    #  type          = string
+     # path          = string
+      #methods       = list(string)
+      #function_name = string
+    #}))
+     # }))
+  #}
