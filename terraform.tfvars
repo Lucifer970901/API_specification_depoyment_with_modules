@@ -7,4 +7,13 @@ subnet_id = "ocid1.subnet.oc1.iad.aaaaaaaaxi67xath5e6e57ffg5ilwbqoxdaiicgu7zorpc
 function_ids  = {
   helloworld-func = "" 
 }
-
+gwdeploy_params = {
+  function_routes = [
+      {
+        type          = "function"
+        path          = "/func"
+        methods       = ["GET", ]
+        function_name = "helloworld-func"
+      }
+    ]
+}
