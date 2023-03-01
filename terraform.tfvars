@@ -5,6 +5,7 @@ subnet_id = "ocid1.subnet.oc1.iad.aaaaaaaaxi67xath5e6e57ffg5ilwbqoxdaiicgu7zorpc
 
 #function_id = "ocid1.fnapp.oc1.iad.aaaaaaaauzrzzzd7kgciojbqxophdhrnonl3atjdymn4zygmcj4iehhwdvqa"
 function_id  = {
-  fnfunc = "ocid1.fnapp.oc1.iad.aaaaaaaauzrzzzd7kgciojbqxophdhrnonl3atjdymn4zygmcj4iehhwdvqa"
+  fnfunc = " " 
+  #"ocid1.fnapp.oc1.iad.aaaaaaaauzrzzzd7kgciojbqxophdhrnonl3atjdymn4zygmcj4iehhwdvqa"
 }
 
