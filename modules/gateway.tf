@@ -79,7 +79,7 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
 
                 #Optional
                 #function_id = "${function_id[routes.value.function_name]}"
-                function_id = ""
+                function_id = "ocid1.fnapp.oc1.iad.aaaaaaaauzrzzzd7kgciojbqxophdhrnonl3atjdymn4zygmcj4iehhwdvqa"
                 connect_timeout_in_seconds = "5"
                 read_timeout_in_seconds = "5"
                 send_timeout_in_seconds = "5"
