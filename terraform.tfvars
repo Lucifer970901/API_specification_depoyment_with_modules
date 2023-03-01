@@ -12,8 +12,8 @@ gwdeploy_params = {
   function_routes = [
       {
         type          = "function"
-        path          = "/func"
-        methods       = ["GET", ]
+        #path          = "/func"
+        #methods       = ["GET", ]
         function_name = "helloworld-func"
       }
     ]
