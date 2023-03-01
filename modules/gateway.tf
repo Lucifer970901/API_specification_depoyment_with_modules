@@ -84,8 +84,8 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
                 connect_timeout_in_seconds = "5"
                 read_timeout_in_seconds = "5"
                 send_timeout_in_seconds = "5"
-            }}
-         
+            }
+                
             path = "/tickets"
 
             #Optional
