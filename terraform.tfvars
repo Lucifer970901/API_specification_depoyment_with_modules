@@ -8,6 +8,7 @@ function_ids  = {
   helloworld-func = "" 
 }
 gwdeploy_params = {
+   api_deploy1 = {
   function_routes = [
       {
         type          = "function"
@@ -16,4 +17,5 @@ gwdeploy_params = {
         function_name = "helloworld-func"
       }
     ]
+}
 }
