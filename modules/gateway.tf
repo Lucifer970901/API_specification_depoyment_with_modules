@@ -79,7 +79,7 @@ resource "oci_apigateway_deployment" "fieldservice_deployment" {
 
                 #Optional
                 #function_id = "${function_id[routes.value.function_name]}"
-                function_id = "${var.function_id}"
+                function_id = "${var.function_ids[function_name]}"
                 connect_timeout_in_seconds = "5"
                 read_timeout_in_seconds = "5"
                 send_timeout_in_seconds = "5"
